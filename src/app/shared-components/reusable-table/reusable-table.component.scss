@@ -1,0 +1,13 @@
+.hide {
+    visibility: hidden;
+    margin-top: 15px;
+  }
+
+  .action-hide:hover .hide {
+    visibility: visible;
+    cursor: pointer;
+  }
+
+  .action-hide:hover {
+      background-color: #01AAAF;
+  }

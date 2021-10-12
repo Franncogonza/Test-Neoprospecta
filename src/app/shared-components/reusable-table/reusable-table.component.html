@@ -1,0 +1,55 @@
+<h1>listagem de clientes</h1>
+
+<section id="mainTable" class="flex-column">
+    <div id="container" class="w-100">
+        <div class="row w-100 table-responsive">
+
+            <table class="table w-100" style="margin-top: -10px;">
+                <thead>
+                    <tr>
+                        <ng-container *ngFor="let column of columns">
+                            <th scope="col" [innerHTML]="column.headerName"></th>
+                        </ng-container>
+                        <!-- <th class="text-center">
+                            Acciones
+                        </th> -->
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let d of data"  class="action-hide">
+                        <td *ngFor="let c of columns; index as i" [ngSwitch]="c.field">
+
+                            <ng-container>
+                                <span *ngSwitchCase="'id'">
+                                    {{ d.id }}
+                                </span>
+                                <span *ngSwitchCase="'nome'">
+                                    {{ d.name }}
+                                </span>
+                                <span *ngSwitchCase="'idade'">
+                                    {{ d.age }}
+                                </span>
+                                <span *ngSwitchCase="'cidade'">
+                                    {{ d.city}}
+                                </span>
+
+                                <span *ngSwitchCase="'edit'">
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" class="hide">
+                                        <mat-icon>more_vert</mat-icon>
+                                      </button>
+                                      <mat-menu #menu="matMenu">
+                                    <button mat-menu-item class="mat-menu-item" (click)="editCustomer(d)">
+                                        <span class="item-accion">Editar</span>
+                                    </button></mat-menu>
+                             </span>
+
+                            </ng-container>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
