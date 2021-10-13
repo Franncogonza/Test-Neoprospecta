@@ -1,0 +1,25 @@
+<h1>Editar cliente</h1>
+
+<form [formGroup]="customerForm">
+    <mat-form-field [floatLabel]="'never'">
+        <input matInput placeholder="Id" type="text" formControlName="id" />
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="'never'">
+        <input matInput placeholder="Name" type="text" autocomplete="off" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="'never'">
+        <input matInput placeholder="Idade" type="text" autocomplete="off" formControlName="age" maxlength="3"
+            minLength="1" />
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="'never'">
+        <input matInput placeholder="Cidade" type="text" autocomplete="off" formControlName="city" />
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-button class="boton-cancel" (click)="cancelarClick()">Cancelar</button>
+        <button mat-button class="boton-primary" (click)="saveChanges()" [disabled]="habilitaGuardar">Salvar</button>
+    </div>
+</form>

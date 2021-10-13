@@ -2,7 +2,8 @@
 
 <reusable-table *ngIf="!loader"
 [data]="dataCustomers"
-[columns]="columns">
+[columns]="columns"
+[action]="true">
 </reusable-table>
 
 <reusable-loading *ngIf="loader"></reusable-loading>

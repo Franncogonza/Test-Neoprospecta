@@ -1,13 +1,36 @@
 .hide {
-    visibility: hidden;
-    margin-top: 15px;
-  }
+  visibility: hidden;
+  margin-top: 15px;
+}
 
-  .action-hide:hover .hide {
-    visibility: visible;
-    cursor: pointer;
-  }
+.action-hide:hover .hide {
+  visibility: visible;
+  cursor: pointer;
+}
 
-  .action-hide:hover {
-      background-color: #01AAAF;
+.action-hide:hover {
+  background-color: #01aaaf;
+}
+
+.sortable {
+  color: #01aaaf !important;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.isMobile {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  section {
+    display: none;
   }
+  .isMobile {
+    display: block !important;
+  }
+}
