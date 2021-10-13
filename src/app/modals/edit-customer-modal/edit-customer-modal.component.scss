@@ -1,0 +1,8 @@
+@import "../../../assets/css/neo-variables.scss";
+
+.neo-modal {
+  &-btn-close {
+    color: $neo-ok !important;
+    text-align: right;
+  }
+}
