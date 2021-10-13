@@ -1,3 +1,5 @@
+@import "../../../assets/css/neo-variables.scss";
+
 .hide {
   visibility: hidden;
   margin-top: 15px;
@@ -9,11 +11,11 @@
 }
 
 .action-hide:hover {
-  background-color: #01aaaf;
+  background-color: $neo-ok !important;
 }
 
 .sortable {
-  color: #01aaaf !important;
+  color: $neo-ok !important;
   cursor: pointer;
   text-decoration: none;
 }

@@ -32,13 +32,13 @@
                                 {{ d.id }}
                             </span>
                             <span *ngSwitchCase="'name'">
-                                {{ d.name }}
+                                {{ d.name | titlecase }}
                             </span>
                             <span *ngSwitchCase="'age'">
                                 {{ d.age }}
                             </span>
                             <span *ngSwitchCase="'city'">
-                                {{ d.city}}
+                                {{ d.city | titlecase }}
                             </span>
                         </ng-container>
                     </td>
@@ -49,7 +49,10 @@
                         </button>
                         <mat-menu #menu="matMenu">
                             <button mat-menu-item class="mat-menu-item" (click)="editCustomer(d)">
-                                <span class="item-accion">Editar</span>
+                                <div class="item-accion" >Editar em Modal </div>
+                            </button>
+                            <button mat-menu-item class="mat-menu-item" (click)="editInOtherRoute(d)" >
+                                <div class="item-accion">Editar em outra ruta</div>
                             </button>
                         </mat-menu>
                     </td>
@@ -72,7 +75,7 @@
             <button mat-button>Cidade: {{ d.city }}</button>
         </mat-card-actions>
         <mat-card-actions align="end">
-            <button mat-button (click)="editCustomer(d)">EDITAR</button>
+            <button mat-button (click)="editInOtherRoute(d)">Editar</button>
         </mat-card-actions>
     </mat-card>
     <br>

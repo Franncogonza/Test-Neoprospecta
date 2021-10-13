@@ -1,0 +1,18 @@
+@import "../assets/css/neo-variables.scss";
+a {
+  margin-left: 18px;
+}
+.bg-neoprospecta {
+  background-color: $neo-ok !important;
+  margin-left: 18px;
+  color: $neo-white !important;
+}
+
+@media (max-width: 500px) {
+  nav {
+    display: block;
+    li {
+      margin-top: 18px;
+    }
+  }
+}

@@ -1,23 +1,8 @@
-/********* toaster new **********/
+@import "../../../assets/css/neo-variables.scss";
 
-.sucess {
-    box-shadow: none !important;
-    border-radius: 4px !important;
-    padding: 14px !important;
-    background-image: none !important;
-    width: 370px;
-    max-width: 400px;
-    height: 46px;
-    border-radius: 3px;
-    background: green;
-    &.check {
-        background-size: 24px;
-        background-position: 14px;
-        background-repeat: no-repeat;
-        color: #ffffff;
-        .toast-message {
-            padding-left: 36px;
-            font-size: 14px;
-        }
-    }
+.neo-modal {
+  &-btn-close {
+    color: $neo-ok !important;
+    text-align: right;
+  }
 }

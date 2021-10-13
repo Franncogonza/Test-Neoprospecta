@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/Table';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CustomersService } from 'src/app/customers.service';
 import { EditCustomerModalComponent } from 'src/app/modals/edit-customer-modal/edit-customer-modal.component';
@@ -13,7 +14,7 @@ import { IReusableTable } from './reusable-table.interface';
   templateUrl: './reusable-table.component.html',
   styleUrls: ['./reusable-table.component.scss']
 })
-export class ReusableTableComponent implements OnInit{
+export class ReusableTableComponent implements OnInit {
   dataSource = new MatTableDataSource<any>([]);
   obs: Observable<any[]> | undefined;
   pageSize!: number;
@@ -32,17 +33,18 @@ export class ReusableTableComponent implements OnInit{
     private changeDetectorRef: ChangeDetectorRef,
     private customerService: CustomersService,
     public dialog: MatDialog,
-  ){}
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     this.setView();
   }
 
+  // TO DO
   // ngOnChanges() {
   // 	if (this.dataChange) {
   // 		this.dataChange.subscribe((res: any) => {
   // 			this.data = res;
-  // 			// this.buildIndexPaginado();
   // 		});
   // 	}
   // }
@@ -61,21 +63,25 @@ export class ReusableTableComponent implements OnInit{
     this.obs = this.dataSource.connect();
   }
 
-  editCustomer(customer: any){
-    console.log(customer)
+  editCustomer(customer: any) {
     const dialogRef = this.dialog.open(EditCustomerModalComponent, {
       data: customer,
-      width: '100%',
-      height: '50%'
+      width: '80%',
+      // height: '90%'
     });
 
     dialogRef.afterClosed().subscribe(result => { });
   }
 
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  editInOtherRoute(data: any) {
+    data.noModal = true;
+    this.router.navigate([`/customer-edit`], {
+      queryParams: data });
   }
 
   ngOnDestroy() {
