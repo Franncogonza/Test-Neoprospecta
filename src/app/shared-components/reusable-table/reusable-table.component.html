@@ -2,10 +2,14 @@
 <!-- <ng-container *ngIf="!$vistaMobile.value"> -->
 <section class="flex-column p-5">
     <div class="row w-100">
+
+        <!-- filters -->
         <mat-form-field appearance="standard">
             <mat-label>Filtros</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Pesquise por id, nome, idade ou cidade" #input>
         </mat-form-field>
+
+        <!-- table -->
         <table class="table w-100 mat-elevation-z8 p-3" matSort>
             <thead>
                 <tr>
@@ -43,15 +47,16 @@
                         </ng-container>
                     </td>
 
+                    <!-- actions -->
                     <td *ngIf="action">
                         <button mat-icon-button [matMenuTriggerFor]="menu" class="hide">
                             <mat-icon>more_vert</mat-icon>
                         </button>
                         <mat-menu #menu="matMenu">
                             <button mat-menu-item class="mat-menu-item" (click)="editCustomer(d)">
-                                <div class="item-accion" >Editar em Modal </div>
+                                <div class="item-accion">Editar em Modal </div>
                             </button>
-                            <button mat-menu-item class="mat-menu-item" (click)="editInOtherRoute(d)" >
+                            <button mat-menu-item class="mat-menu-item" (click)="editInOtherRoute(d)">
                                 <div class="item-accion">Editar em outra ruta</div>
                             </button>
                         </mat-menu>
@@ -60,6 +65,7 @@
             </tbody>
         </table>
     </div>
+    <!-- paginator -->
     <mat-paginator [pageSize]="10" [hidePageSize]="this.ocultarPageSize"></mat-paginator>
 </section>
 <!-- </ng-container> -->

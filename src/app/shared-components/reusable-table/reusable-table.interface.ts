@@ -11,6 +11,5 @@ export interface IReusableTable {
     isNested?: boolean;
     target?: string;
     edit?: boolean;
-    // development only
     isFeatureFlag?: boolean;
 }

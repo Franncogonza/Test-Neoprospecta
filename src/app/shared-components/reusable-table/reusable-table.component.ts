@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild, ViewRef } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, ViewChild, ViewRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -81,7 +81,8 @@ export class ReusableTableComponent implements OnInit {
   editInOtherRoute(data: any) {
     data.noModal = true;
     this.router.navigate([`/customer-edit`], {
-      queryParams: data });
+      queryParams: data
+    });
   }
 
   ngOnDestroy() {

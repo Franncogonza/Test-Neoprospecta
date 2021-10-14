@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -14,6 +13,7 @@ import { CustomersService } from 'src/app/customers.service';
 export class FormEditCustomerComponent implements OnInit {
   @Input() data: any;
   @Input() noModal: boolean = false;
+  @Output() closeModal = new EventEmitter();
 
   subscription: Subscription = new Subscription();
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
@@ -96,8 +96,10 @@ export class FormEditCustomerComponent implements OnInit {
     );
   }
 
-  back() {
-    this.router.navigate([`/customer-list`]);
+  back() { this.router.navigate([`/customer-list`]); }
+
+  cancelar(){
+    this.closeModal.emit(true);
   }
 
   saveChanges() {
@@ -107,26 +109,19 @@ export class FormEditCustomerComponent implements OnInit {
         if (res.status) {
           this.router.navigate([`/customer-list`]);
           this.showSuccesMessage('Cliente ' + `${this.data.name}` + ' atualizado com sucesso!');
+          !this.noModal ? this.closeModal.emit(true) : '';
         } else {
-          this.showSuccesMessage('Desculpe, ha habido un error, nao se salvou a edicao');
+          this.showSuccesMessage('Desculpe, ha habido un error, tente novamente');
         };
-      }
-      )
-    );
+      }));
   }
 
-  showSuccesMessage(message: string) {
-    this.openSnackBar(message);
-  }
+  showSuccesMessage(message: string) { this.openSnackBar(message); }
 
   openSnackBar(message: string, action?: string) {
     this._snackBar.open(message, action, { duration: 5 * 1000, });
   }
 
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
+  ngOnDestroy() { this.subscription.unsubscribe(); }
 
 }

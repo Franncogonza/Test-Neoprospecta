@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditCustomerModalComponent } from './modals/edit-customer-modal/edit-customer-modal.component';
 import { CustomerEditComponent } from './pages/customer-edit/customer-edit.component';
 import { CustomersListComponent } from './pages/customers-list/customers-list.component';
 import { HomeComponent } from './pages/home/home.component';
