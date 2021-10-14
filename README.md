@@ -1,6 +1,6 @@
 # TesteNeoprospecta
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9. and is part of a test, exam for the NeoProspecta company, to run the project on your pc, after downloading it, you must install the NPM dependencies with this cobsole command npm install
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9. and is part of a test, exam for the NeoProspecta company, to run the project on your pc, after downloading it, you must install the NPM dependencies with this console command npm install
 and then lift the server. Any questions you can write me.
 ## Development server
 
