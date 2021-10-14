@@ -2,5 +2,8 @@
     <div class="neo-modal-btn-close">
         <button mat-button class="mr-3" (click)="cancelar()">x</button>
     </div>
-    <app-form-edit-customer [data]="data"></app-form-edit-customer>
+    <app-form-edit-customer
+    [data]="data"
+    (closeModal)="closeModal($event)"
+    ></app-form-edit-customer>
 </div>

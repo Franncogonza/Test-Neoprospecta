@@ -15,7 +15,11 @@ export class EditCustomerModalComponent {
   ) { }
 
   cancelar(): void {
-      this.dialogRef.close(null);
-    }
+    this.dialogRef.close(null);
+  }
+
+  closeModal(e: any) {
+    this.dialogRef.close(null);
+  }
 
 }
